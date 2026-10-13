@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerFit AI — Turn Your Resume Into a Skills Profile</title>
+  <meta name="description" content="CareerFit AI accurately extracts and identifies technical skills from PDF and DOCX resumes using high-precision boundary matching.">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo" id="brandLogoLink">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <span>CareerFit AI</span>
+        <span class="brand-badge">SaaS</span>
+      </a>
+
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="upload.html" class="nav-link">Upload</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="upload.html" class="btn btn-primary" id="headerAnalyzeBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          Analyze Resume
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span class="hero-pill-indicator"></span>
+          <span>Boundary-Aware Technical Extraction Engine</span>
+        </div>
+
+        <h1 class="hero-title">
+          Turn Your Resume Into a <span class="hero-title-accent">Skills Profile.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Upload your resume in PDF or DOCX format. CareerFit AI safely extracts text, identifies the technical skills genuinely present in your document, and persists the analysis in MySQL for instant review.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="upload.html" class="btn btn-primary btn-lg" id="heroPrimaryCta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Analyze My Resume
+          </a>
+
+          <a href="#how-it-works" class="btn btn-secondary btn-lg" id="heroSecondaryCta">
+            How It Works
+          </a>
+        </div>
+
+        <div class="hero-features-bar">
+          <div class="hero-feature-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>PDF & DOCX Support</span>
+          </div>
+          <div class="hero-feature-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Zero False Positives</span>
+          </div>
+          <div class="hero-feature-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span>Instant JSON/Text Export</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Dashboard Preview (Clearly labeled illustrative sample data) -->
+      <div class="hero-preview-wrapper">
+        <div class="preview-card">
+          <div class="preview-badge-ribbon">
+            <div class="preview-window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="preview-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              ILLUSTRATIVE PREVIEW • SAMPLE DATA
+            </span>
+          </div>
+
+          <div class="preview-body">
+            <div class="preview-meta">
+              <div class="preview-file-info">
+                <div class="file-type-icon">PDF</div>
+                <div>
+                  <div class="preview-filename">alex_software_engineer.pdf</div>
+                  <div class="preview-file-sub">Sample Resume Analysis</div>
+                </div>
+              </div>
+              <span class="preview-count-pill">6 Skills Found</span>
+            </div>
+
+            <div class="preview-section-title">Detected Technical Skills</div>
+            <div class="preview-skills-grid">
+              <span class="skill-badge"><span class="skill-badge-dot"></span>Java</span>
+              <span class="skill-badge"><span class="skill-badge-dot"></span>Spring Boot</span>
+              <span class="skill-badge"><span class="skill-badge-dot"></span>MySQL</span>
+              <span class="skill-badge"><span class="skill-badge-dot"></span>Docker</span>
+              <span class="skill-badge"><span class="skill-badge-dot"></span>AWS</span>
+              <span class="skill-badge"><span class="skill-badge-dot"></span>React</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section" id="how-it-works">
+      <div class="section-header">
+        <div class="section-tag">Processing Pipeline</div>
+        <h2 class="section-title">How CareerFit AI Works</h2>
+        <p class="section-desc">
+          A three-step deterministic architecture designed for clean, reliable extraction without fabricated AI hallucinations.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Upload Resume</h3>
+          <p class="step-text">
+            Upload your resume in PDF or DOCX format (up to 5 MB). The system validates file integrity, extension, and binary magic bytes on both client and server.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Extract Skills</h3>
+          <p class="step-text">
+            Apache PDFBox or Apache POI extracts readable text in-memory. Our boundary-aware dictionary scans for 80+ technologies with strict word-boundary checks.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">View Results</h3>
+          <p class="step-text">
+            The processing outcome is stored in MySQL and presented on an interactive dashboard with skill tags, category filters, and downloadable JSON/Text reports.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+      <div class="section-header">
+        <div class="section-tag">Key Capabilities</div>
+        <h2 class="section-title">Built for Accuracy and Reliability</h2>
+        <p class="section-desc">
+          Engineered to give recruiters and developers an accurate technical profile without noise.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+          </div>
+          <h3 class="feature-title">PDF & DOCX Support</h3>
+          <p class="feature-desc">
+            Seamlessly handles both Adobe PDF and modern Microsoft Word documents using Apache PDFBox 3.x and Apache POI.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="12 8 8 12 12 16 16 12 12 8"></polygon>
+            </svg>
+          </div>
+          <h3 class="feature-title">Zero False Positives</h3>
+          <p class="feature-desc">
+            Never mistakes "JavaScript" for "Java", "CSS" for "C", or "Good" for "Go". Strict boundary regex protects matching accuracy.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">MySQL Persistence</h3>
+          <p class="feature-desc">
+            Every analysis is persisted with a unique ID, allowing you to reload, bookmark, or revisit results at any time.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-icon" style="width:28px; height:28px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          </svg>
+        </div>
+        <span>CareerFit AI</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="upload.html">Upload Resume</a>
+        <a href="#how-it-works">Architecture</a>
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <div class="footer-copy">
+        CareerFit AI — Resume Skill Extraction System • Spring Boot 3 &amp; Vanilla JS Architecture
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+</body>
+</html>

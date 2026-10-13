@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Resume — CareerFit AI</title>
+  <meta name="description" content="Upload your PDF or DOCX resume to extract technical skills automatically.">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo" id="brandLogoLink">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <span>CareerFit AI</span>
+      </a>
+
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+        <a href="upload.html" class="nav-link" style="color:var(--primary-600);font-weight:600;">Upload</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-outline btn-sm">
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <div class="upload-layout">
+      <div class="page-header">
+        <h1 class="page-title">Upload Your Resume</h1>
+        <p class="page-desc">Select or drop a PDF or DOCX file to analyze your technical skill set.</p>
+      </div>
+
+      <div class="card">
+        <!-- Hidden real file input -->
+        <input type="file" id="fileInput" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display:none;" aria-label="Resume file selector">
+
+        <!-- Drag and drop zone -->
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Resume dropzone: click or drag file here">
+          <div class="dropzone-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+          </div>
+          <div>
+            <div class="dropzone-title">Drag &amp; drop your resume here</div>
+            <div class="dropzone-subtitle">or <span class="dropzone-browse-text">browse files</span> on your computer</div>
+          </div>
+          <div class="file-specs">
+            <span>PDF or DOCX</span>
+            <span>•</span>
+            <span>Up to 5 MB</span>
+          </div>
+        </div>
+
+        <!-- Selected File Preview Container -->
+        <div class="selected-file-box" id="selectedFileBox">
+          <div class="file-info-group">
+            <div class="file-icon-badge" id="fileIconBadge">PDF</div>
+            <div class="file-details">
+              <div class="selected-filename" id="selectedFilename">resume.pdf</div>
+              <div class="selected-filesize" id="selectedFilesize">1.4 MB • PDF Document</div>
+            </div>
+          </div>
+          <button type="button" class="btn-remove-file" id="btnRemoveFile" aria-label="Remove selected resume file">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            Remove
+          </button>
+        </div>
+
+        <!-- Progress and Processing Status Indicator -->
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-label-bar">
+            <span id="progressStatusText">Extracting technical skills...</span>
+            <span id="progressPercentText">Processing</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <!-- Inline Error Alert Box -->
+        <div class="alert-box alert-danger" id="alertBox">
+          <div class="alert-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div id="alertMessage">Please select a valid resume.</div>
+        </div>
+
+        <!-- Upload Form Actions -->
+        <div class="upload-actions">
+          <a href="index.html" class="btn btn-secondary" id="btnCancel">Cancel</a>
+          <button type="button" class="btn btn-primary" id="btnAnalyze" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            Analyze Resume
+          </button>
+        </div>
+      </div>
+
+      <!-- Guidelines Card -->
+      <div class="guidelines-card">
+        <h2 class="guidelines-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4"></path>
+            <path d="M12 8h.01"></path>
+          </svg>
+          Document Guidelines
+        </h2>
+        <ul class="guidelines-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Supports standard <strong>PDF (.pdf)</strong> and Microsoft Word <strong>DOCX (.docx)</strong> files.</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Maximum file size allowed is <strong>5 MB</strong>.</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Document must contain selectable text. Scanned photo-only PDFs without an OCR layer cannot be read.</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span><strong>Privacy notice:</strong> Documents are processed in-memory to extract skills and discarded immediately.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">CareerFit AI</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="upload.html">Upload</a>
+      </div>
+      <div class="footer-copy">
+        CareerFit AI — Resume Skill Extraction System
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>
