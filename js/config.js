@@ -10,7 +10,7 @@
 
 const CareerFitConfig = (function () {
   // Default development URL
-  const DEFAULT_DEV_API_URL = 'http://localhost:8080';
+  const DEFAULT_DEV_API_URL = 'https://careerfitai-backend.onrender.com';
 
   /**
    * Resolves the active backend API base URL.
